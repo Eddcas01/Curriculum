@@ -1,10 +1,9 @@
 <?php
 $namein = $_POST['name'];
 $emailin = $_POST['email'];
-$subin = $_POST['subject'];
-$messagein = $_POST['message'];
+$messagein = $_POST['mensaje'];
 
-if (!empty($namein)||!empty($emailin)||!empty($subin)||!empty($messagein)){
+if (!empty($namein)||!empty($emailin)||!empty($messagein)){
     $host = '127.0.0.1';
     $dbUsername = 'root';
     $dbPassword = '';
@@ -17,7 +16,7 @@ if (!empty($namein)||!empty($emailin)||!empty($subin)||!empty($messagein)){
     }else
     {
         $SELECT = "SELECT nombre From interesados Where nombre= ? Limit 1";
-        $INSERT = "INSERT Into interesados (nombre, correo, asunto, mensaje) values (?,?,?,?)";
+        $INSERT = "INSERT Into interesados (nombre, correo, mensaje) values (?,?,?)";
 
         $stmt = $conn->prepare($SELECT);
         $stmt->bind_param('s',$namein);
